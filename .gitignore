@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+
+#database files
+*.db 
+*.sqlite3
+mental_health_chatbot.db
