@@ -1,0 +1,244 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+    <title>Mental Health Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-history" id="chatHistory"></div>
+        <div class="chat-input-area">
+            <select id="issueDropdown">
+                <option value="">Ask a Question</option>
+                <option value="anxiety">Anxiety</option>
+                <option value="depression">Depression</option>
+                <option value="stress">Stress</option>
+                <option value="relationship">Relationship</option>
+                <option value="sleep">Sleep</option>
+                <option value="motivation">Motivation</option>
+            </select>
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button id="sendButton">Send</button>
+            <button id="showCheckIn">Check-in</button>
+            <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+        </div>
+
+        <div id="mentalHealthForm" style="display: none;">
+            <h3>Mental Health Check-in</h3>
+            <form id="checkInForm">
+                <label for="mood">How would you rate your mood today (1-5, 1 being very low, 5 being very high)?</label>
+                <input type="number" id="mood" name="mood" min="1" max="5" required><br><br>
+                <label>Have you been experiencing persistent feelings of sadness or hopelessness?</label><br>
+                <input type="radio" id="sadYes" name="sadness" value="yes">
+                <label for="sadYes">Yes</label>
+                <input type="radio" id="sadNo" name="sadness" value="no">
+                <label for="sadNo">No</label><br><br>
+                <label>Have you been feeling unusually anxious or worried?</label><br>
+                <input type="radio" id="anxiousYes" name="anxiety" value="yes">
+                <label for="anxiousYes">Yes</label>
+                <input type="radio" id="anxiousNo" name="anxiety" value="no">
+                <label for="anxiousNo">No</label><br><br>
+                <label>Have you noticed changes in your sleep patterns (e.g., insomnia, excessive sleep)?</label><br>
+                <input type="radio" id="sleepYes" name="sleep" value="yes">
+                <label for="sleepYes">Yes</label>
+                <input type="radio" id="sleepNo" name="sleep" value="no">
+                <label for="sleepNo">No</label><br><br>
+                <label>Have you experienced changes in your appetite or weight?</label><br>
+                <input type="radio" id="appetiteYes" name="appetite" value="yes">
+                <label for="appetiteYes">Yes</label>
+                <input type="radio" id="appetiteNo" name="appetite" value="no">
+                <label for="appetiteNo">No</label><br><br>
+                <label>Have you been feeling unusually tired or lacking energy?</label><br>
+                <input type="radio" id="fatigueYes" name="fatigue" value="yes">
+                <label for="fatigueYes">Yes</label>
+                <input type="radio" id="fatigueNo" name="fatigue" value="no">
+                <label for="fatigueNo">No</label><br><br>
+                <label>Have you had difficulty concentrating or making decisions?</label><br>
+                <input type="radio" id="concentrationYes" name="concentration" value="yes">
+                <label for="concentrationYes">Yes</label>
+                <input type="radio" id="concentrationNo" name="concentration" value="no">
+                <label for="concentrationNo">No</label><br><br>
+                <button type="submit">Submit</button>
+                <button type="button" id="cancelCheckIn">Cancel</button>
+            </form>
+        </div>
+        <div id="helplineNumbers">
+            <h3>Mental Health Helpline Numbers</h3>
+            <ul>
+                <li>Vandrevala Foundation Helpline: <strong>9999666555</strong> (WhatsApp chat support available) | <strong>Website: </strong>
+                    <a href="https://www.vandrevalafoundation.com/" target="_blank">https://www.vandrevalafoundation.com/</a></li>
+                <li>Tele MANAS Helpline: <strong>14416</strong> | <strong>Website: </strong>
+                    <a href="https://telemanas.mohfw.gov.in/home" target="_blank">https://telemanas.mohfw.gov.in/home</a></li>
+                <li>MPower Minds Helpline: <strong>1800-120-820050</strong> | <strong>Website: </strong>
+                    <a href="https://mpowerminds.com/oneonone" target="_blank">https://mpowerminds.com/oneonone</a></li>
+                <li>1Life Suicide Prevention & Crisis Support Helpline: <strong>7893078930</strong> | <strong>Website: </strong>
+                    <a href="https://1life.org.in/" target="_blank">https://1life.org.in/</a></li>
+                <li>Sumaitri Helpline: <strong> 011-23389090, +91-9315767849</strong> | <strong>Website: </strong>
+                    <a href="https://www.sumaitri.net/" target="_blank">https://www.sumaitri.net/</a></li>
+            </ul>
+        </div> 
+    </div>
+    
+    <script>
+        document.getElementById('showCheckIn').addEventListener('click', function() {
+            document.getElementById('mentalHealthForm').style.display = 'block';
+        });
+        
+        // Add cancel button functionality
+        document.getElementById('cancelCheckIn').addEventListener('click', function() {
+            document.getElementById('mentalHealthForm').style.display = 'none';
+        });
+    </script>
+    <script>
+        let userId = JSON.parse('{{ user_id|tojson }}');
+    </script>
+    <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+    <title>Mental Health Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Additional styles to ensure proper layout */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* Full height of the viewport */
+            position: relative; /* Needed for absolute positioning of the form */
+        }
+        .chat-history {
+            flex-grow: 1; /* Allows chat history to take up available space */
+            overflow-y: auto; /* Enables scrolling within the chat history */
+        }
+        #mentalHealthForm {
+            display: none; /* Initially hidden */
+            position: absolute; /* Take the form out of the normal flow */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9); /* White with 80% opacity */
+            padding: 20px; /* Add some padding for better appearance */
+            box-sizing: border-box; /* Include padding in width/height calculation */
+            overflow-y: auto; /* Enable scrolling within the form if needed */
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0; /* Reset default body margin */
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-history" id="chatHistory"></div>
+        <div class="chat-input-area">
+            <select id="issueDropdown">
+                <option value="">Ask a Question</option>
+                <option value="anxiety">Anxiety</option>
+                <option value="depression">Depression</option>
+                <option value="stress">Stress</option>
+                <option value="relationship">Relationship</option>
+                <option value="sleep">Sleep</option>
+                <option value="motivation">Motivation</option>
+            </select>
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button id="sendButton">Send</button>
+            <button id="showCheckIn">Check-in</button>
+            <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+        </div>
+
+    </div>
+
+    <div id="mentalHealthForm">
+        <h3>Mental Health Check-in</h3>
+        <form id="checkInForm">
+            <label for="mood">How would you rate your mood today (1-5, 1 being very low, 5 being very high)?</label>
+            <input type="number" id="mood" name="mood" min="1" max="5" required><br><br>
+            <label>Have you been experiencing persistent feelings of sadness or hopelessness?</label><br>
+            <input type="radio" id="sadYes" name="sadness" value="yes">
+            <label for="sadYes">Yes</label>
+            <input type="radio" id="sadNo" name="sadness" value="no">
+            <label for="sadNo">No</label><br><br>
+            <label>Have you been feeling unusually anxious or worried?</label><br>
+            <input type="radio" id="anxiousYes" name="anxiety" value="yes">
+            <label for="anxiousYes">Yes</label>
+            <input type="radio" id="anxiousNo" name="anxiety" value="no">
+            <label for="anxiousNo">No</label><br><br>
+            <label>Have you noticed changes in your sleep patterns (e.g., insomnia, excessive sleep)?</label><br>
+            <input type="radio" id="sleepYes" name="sleep" value="yes">
+            <label for="sleepYes">Yes</label>
+            <input type="radio" id="sleepNo" name="sleep" value="no">
+            <label for="sleepNo">No</label><br><br>
+            <label>Have you experienced changes in your appetite or weight?</label><br>
+            <input type="radio" id="appetiteYes" name="appetite" value="yes">
+            <label for="appetiteYes">Yes</label>
+            <input type="radio" id="appetiteNo" name="appetite" value="no">
+            <label>Have you been feeling unusually tired or lacking energy?</label><br>
+            <input type="radio" id="fatigueYes" name="fatigue" value="yes">
+            <label for="fatigueYes">Yes</label>
+            <input type="radio" id="fatigueNo" name="fatigue" value="no">
+            <label>Have you had difficulty concentrating or making decisions?</label><br>
+            <input type="radio" id="concentrationYes" name="concentration" value="yes">
+            <label for="concentrationYes">Yes</label>
+            <input type="radio" id="concentrationNo" name="concentration" value="no">
+            <label for="concentrationNo">No</label><br><br>
+            <div class="chat-input-area">
+            <button type="submit">Submit</button>
+            <button type="button" id="cancelCheckIn">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="helplineNumbers">
+        <h3>Mental Health Helpline Numbers</h3>
+        <ul>
+            <li>Vandrevala Foundation Helpline: <strong>9999666555</strong> (WhatsApp chat support available) | <strong>Website: </strong>
+                <a href="https://www.vandrevalafoundation.com/" target="_blank" style="color: blue;">https://www.vandrevalafoundation.com/</a></li>
+            <li>Tele MANAS Helpline: <strong>14416</strong> | <strong>Website: </strong>
+                <a href="https://telemanas.mohfw.gov.in/home" target="_blank" style="color: blue;">https://telemanas.mohfw.gov.in/home</a></li>
+            <li>MPower Minds Helpline: <strong>1800-120-820050</strong> | <strong>Website: </strong>
+                <a href="https://mpowerminds.com/oneonone" target="_blank" style="color: blue;">https://mpowerminds.com/oneonone</a></li>
+            <li>1Life Suicide Prevention & Crisis Support Helpline: <strong>7893078930</strong> | <strong>Website: </strong>
+                <a href="https://1life.org.in/" target="_blank" style="color: blue;">https://1life.org.in/</a></li>
+            <li>Sumaitri Helpline: <strong> 011-23389090, +91-9315767849</strong> | <strong>Website: </strong>
+                <a href="https://www.sumaitri.net/" target="_blank" style="color: blue;">https://www.sumaitri.net/</a></li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('showCheckIn').addEventListener('click', function() {
+            document.getElementById('mentalHealthForm').style.display = 'block';
+        });
+
+        // Add cancel button functionality
+        document.getElementById('cancelCheckIn').addEventListener('click', function() {
+            document.getElementById('mentalHealthForm').style.display = 'none';
+        });
+        
+        document.getElementById('checkInForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            document.getElementById('mentalHealthForm').style.display = 'none';
+        });
+    </script>
+    <script>
+        let userId = JSON.parse('{{ user_id|tojson }}');
+    </script>
+    <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>
+

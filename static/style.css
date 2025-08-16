@@ -1,0 +1,305 @@
+/* backend/static/style.css */
+
+#chatHistory {
+    border: 1px solid #ccc;
+    height: 300px;
+    overflow-y: scroll;
+    padding: 10px;
+    background-color: rgb(104, 105, 167);
+}
+
+.bot-message {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    padding: 40px;
+    text-align: center;
+}
+
+.welcome-section {
+    margin-top: 100px;
+    margin-bottom: 30px;
+    padding-top: 30px;
+}
+
+.welcome-section h1 {
+    color: #2e487d;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    color: #424242;
+}
+
+.auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.auth-form h2 {
+    color: #388e3c;
+    margin-bottom: 20px;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="password"] {
+    width: calc(100% - 32px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-bottom: 1px solid #81c784;
+    background-color: transparent;
+    outline: none;
+}
+
+.auth-form button {
+    width: 48%;
+    padding: 10px;
+    background-color: #c7b3ed;
+    color: #333;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.auth-form button:hover {
+    background-color: #9494a2;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.password-input {
+    position: relative;
+}
+
+.password-input i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.quote-section {
+    position: absolute; /* Position the quote absolutely */
+    top: 10px; /* Adjust as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    text-align: center; /* Center text inside the quote */
+    width: 80%; /* Adjust width as needed */
+    font-size:xx-large;
+}
+
+.quote {
+    font-size: 1.5em;
+    color: #6d0fbf;
+}
+
+
+
+.chat-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 80vh; 
+    margin: 20px auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.chat-history {
+    height: 400px;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #85a5d6; /* Purple-blue background */
+    display: flex;
+    flex-direction: column;
+}
+
+/* User messages - right side with yellow background */
+.user-message {
+    align-self: flex-end;
+    background-color: #D8F3DC; /* Yellow background */
+    border-radius: 16px;
+    padding: 10px 15px;
+    margin: 5px 0;
+    max-width: 70%;
+    text-align: left;
+    color: #2D5F5D;  
+}
+
+/* Bot messages - left side with light blue background */
+.bot-message {
+    align-self: flex-start;
+    background-color: #D3E3FC; /* Light blue background */
+    border-radius: 16px;
+    padding: 10px 15px;
+    margin: 5px 0;
+    max-width: 70%;
+    text-align: left;
+    color: #2D3E50; 
+}
+
+/* Style for paragraphs inside bot messages */
+.bot-message p {
+    margin: 0 0 10px 0;
+}
+
+/* Style for the last paragraph to remove extra margin */
+.bot-message p:last-child {
+    margin-bottom: 0;
+}
+
+/* Style for lists inside bot messages */
+.bot-message ul, .bot-message ol {
+    margin: 5px 0;
+    padding-left: 20px;
+}
+
+.bot-message li {
+    margin-bottom: 5px;
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ddd;
+    align-items: center; /* Vertically center items */
+    gap: 10px; 
+}
+/*
+.chat-input-area input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #181212;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+*/
+.chat-input-area input[type="text"] {
+    flex-grow: 1;
+    padding: 12px 15px;            /* Slightly larger padding for comfort */
+    border: 2px solid #87CBB9;     /* Soft teal border for a calming effect */
+    border-radius: 20px;           /* Rounded corners for a softer look */
+    background-color: #F8F9FA;     /* Light grey background for a clean feel */
+    color: #2D3E50;                /* Dark grey text for readability */
+    outline: none;                 /* Removes the harsh blue outline */
+    transition: border 0.3s ease;  /* Smooth transition for focus effect */  
+}
+
+.chat-input-area input[type="text"]:focus {
+    border-color: #5AA897;         /* Deeper teal glow on focus */
+    box-shadow: 0 0 8px rgba(90, 168, 151, 0.5); /* Soft glow for focus */
+}
+
+.chat-input-area button, select {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    background-color: #87CBB9; /* Soft Teal */
+    color: #fff;  
+}
+
+.chat-input-area button:hover {
+    opacity: 0.9;
+    transform: scale(1.04);
+}
+
+#mentalHealthForm {
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+#helplineNumbers {
+    padding: 20px;
+}
+
+#helplineNumbers ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#helplineNumbers li {
+    margin-bottom: 10px;
+}
+
+.logout-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 10px;
+    background-color: #F28C8C; /* Gentle Coral */
+    color: #fff;
+}
+
+.logout-button:hover {
+    background-color: #d32f2f;
+}
+
+#mentalHealthForm h3, #helplineNumbers h3 {
+    margin-bottom: 15px;
+}
+
+#mentalHealthForm label, #mentalHealthForm input, #mentalHealthForm button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#mentalHealthForm input[type="radio"] {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+    /*background: linear-gradient(135deg, #95c1f4, #ea8eff, #a8edea, #f7d486);*/
+    background: linear-gradient(135deg, #b3cdd1, #dcb6d5, #a8d0e6, #f6d5f7);
+
+
+
+    background-size: 400% 400%; /* Enlarged gradient area for smooth movement */
+    animation: gradientShift 15s ease infinite; /* Animation properties */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Keyframes for smooth gradient animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
